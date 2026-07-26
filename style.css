@@ -34,6 +34,39 @@ h1, h2, h3 {
     
 }
 
+h4 {
+  font-family:var(--font-header);
+  font-size: 1.25rem;
+  color: var(--color-accent);
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+img {
+  border-radius: 12px;
+}
+
+/* Unvisited link (default state) */
+a:link {
+  color: var(--color-accent); 
+}
+
+/* Visited link (already clicked) */
+a:visited {
+  color: #707d6c; 
+}
+
+/* Hover state (mouse pointer is over it) */
+a:hover {
+  color: #A3B19B; 
+}
+
+/* Active state (the exact moment it is clicked) */
+a:active {
+  color: var(--color-accent); 
+}
+
+
 .poem span {
     display: block;
     opacity: 0;
@@ -54,7 +87,8 @@ h1, h2, h3 {
 }
 
 .welcome {
-   text-align: center; 
+  margin-top: 2em;
+  text-align: center; 
 }
 
 .content {
@@ -63,6 +97,169 @@ h1, h2, h3 {
   transition: opacity 1s ease;
 }
 
+.button-style, button {
+  display: block;       
+  margin: 0 auto;       
+  width: max-content;
+  background-color: var(--color-accent); 
+  color:var(--color-bg);             
+  padding: 10px 20px;        /* Spacing inside the button */
+  border: none;              /* Removes the default ugly border */
+  border-radius: 5px;        /* Rounds the corners slightly */
+  font-size: 16px;           
+  cursor: pointer;           /* Changes mouse cursor to a pointing hand */
+  text-decoration: none;     /* Removes underline if using an <a> tag */
+
+}
+
+.button-style:visited, button:visited {
+  color: var(--color-bg); 
+}
+
+.button-style:hover, button:hover {
+  background-color:#A3B19B; 
+}
+
+.button-style:link, button:link {
+  color: var(--color-bg); 
+}
+
+.footer{
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+/* --CURRENTLY READING--------------------------------------------*/
+
+.CR-section-container { /* Using display:flex sets up a flex box. Now elements in the flexbox are aligned to notebook */
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 2rem auto;
+}
+
+.CR-section-container h2 {
+  margin-bottom: 1rem;
+}
+
+.currently-reading{
+  display:flex;
+  gap: 32px;
+  max-width: 650px;
+  background-color: #f4ecd0;
+  padding: 32px;
+  box-sizing: border-box;
+  text-shadow: none;
+
+  border: 12px solid transparent;
+
+  filter: drop-shadow(2px 6px 12px rgba(40, 30, 10, 0.08)) 
+            drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.05));
+
+  transform: rotate(-1.5deg);               /* Tilts the paper slightly to the left */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.currently-reading:hover {
+  transform: rotate(-0.5deg) translateY(-4px); /* straightens slightly and lifts up */
+  filter: drop-shadow(4px 12px 20px rgba(40, 30, 10, 0.12)) 
+          drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.06)); /* Deepens shadow as it lifts */
+}
+
+.CR-book-wrapper{
+  flex-shrink:0;
+  width: 160px;
+  display: flex;
+  align-items: center;
+}
+
+.book-cover{
+  width: 100%;
+  height: auto;
+  max-height: 250px;   
+  object-fit: contain; 
+  display: block;
+  border-radius: 4px;
+  box-shadow: 3px 5px 12px rgba(45, 35, 20, 0.25); /* delete?? */
+}
+
+.CR-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.CR-book-title {
+  color: var(--color-text);
+  font-size: 1.5rem;
+  margin: 0 0 4px 0;
+}
+
+.CR-book-author {
+  font-style: italic;
+  font-size: 1.05rem;
+  margin: 0 0 16px 0;
+  color: #5a4e3f; 
+}
+
+.progress-zone {
+  margin-bottom: 20px;        /* Spacing before thoughts block */
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #5a4e3f;
+  margin-bottom: 6px;
+}
+
+.progress-bar-track {
+  width: 100%;
+  height: 8px;
+  background-color: #ede5ca;  /* Darker paper groove color */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-accent); 
+  border-radius: 4px;
+  transition: width 0.4s ease-out;
+}
+.progress-labels {
+    justify-content: space-around;
+  }
+
+.book-thoughts h4 {
+  margin-bottom: 8px;
+} 
+
+.book-thoughts p{
+  background-image: linear-gradient(color-mix(in srgb, #5a4e3f 30%, transparent) 1px, transparent 1px); 
+  background-size: 100% 30px;
+  line-height: 30px;   
+  font-size: 1.05rem;
+}
+
+@media (max-width: 520px) { /*480px captures almost all mobiles in portrait*/
+  .currently-reading {
+    flex-direction: column;     /* Stacks cover on top of text on mobile */
+    align-items: center;
+    text-align: center;
+    padding:24px;
+    gap: 20px;
+  }
+  .CR-book-wrapper {
+    width: 130px;               /* Slightly bigger cover when centered alone */
+  }
+}
+
+/* --CURRENTLY READING (END) -------------------------------------*/
 
 /* .lora-<uniquifier> {
   font-family: "Lora", serif;

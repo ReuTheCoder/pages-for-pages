@@ -41,23 +41,43 @@
             <div class="content"> 
                 <h2 class="welcome"> Welcome to my pages for pages. <br> A place where I can record my literary adventures.</h2>
                 <a href="reading-room.html" class="button-style"> Visit my Reading Room!</a>
-
-            <section class="currently-reading"> <!-- + Currently Reading -->
+            
+           <div class="CR-section-container"> 
                 <h2> Currently Reading</h2>
-                    <img src="assets/books/SABI.jpg" alt="Book cover of 'Such a bad influence'"> 
-                    <h3> Such a Bad Influence </h3> <!-- Book Title--> 
-                    <p> Olivia Muenter </p>
-                    <h3> Progress Bar </h3>
-                    <div> [Progres Bar PLACEHOLDER] </div> <!-- progress bar-->
-                    <h3> Current thoughts </h3>
-                    <p> An interesting premise...I love mystery and thrillers! </p>
-            </section>
+                <section class="currently-reading"> <!-- Currently Reading -->
+                    <div class="CR-book-wrapper"> 
+                        <img src="assets/books/SABI.jpg" alt="Book cover of 'Such a bad influence'" class="book-cover"> 
+                    </div>
+
+                    <div class="CR-details">
+                        <h3 class="CR-book-title"> Such a Bad Influence </h3> <!-- Book Title--> 
+                        <p class="CR-book-author"> Olivia Muenter </p>
+
+                        <div class="progress-zone">
+                            <div class ="progress-labels">
+                                <span>Progress</span>
+                                <strong>42%</strong> <!-- CHANGE PERCENTAGE HERE -->
+                            </div>
+                            <div class="progress-bar-track">
+                                <div class="progress-bar-fill" style="width: 42%;"></div> <!-- EDIT PERCENTAGE HERE TOO-->
+                            </div>
+                        </div>
+                        
+                        <div class="book-thoughts">
+                            <h4> Current Thoughts </h4>
+                            <p> An interesting premise...I love mystery and thrillers! </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer class="footer">
+                <p> © 2026 Pages for Pages. All rights reserved.</p>
+            </footer>
+
             </div>
         </main>
 
-        <footer class="footer">
-            <p> © 2026 Pages for Pages. All rights reserved.</p>
-        </footer>
     
     </body>
 
