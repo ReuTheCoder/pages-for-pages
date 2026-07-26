@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-bg: #FDFBD4;
+    --color-accent:  #2E6F40;
+    --color-text: #232B25;
+    --font-header: "DM Serif Display", serif;
+    --font-body: "Lora", serif;
+}
+
+body {
+    background-color: var(--color-bg);
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 400; 
+    line-height: 1.65;
+    padding: 2rem;
+    text-shadow: 0 0 4px rgba(196, 155, 77, 0.4); 
+    
+}
+
+h1, h2, h3 {
+    color: var(--color-accent);
+    font-family: var(--font-header);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    line-height: 1.4;
+    
+}
+
+.poem span {
+    display: block;
+    opacity: 0;
+    text-align: center;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    text-shadow: 0 0 8px rgba(196, 155, 77, 0.4); /* muted gold glow */
+    animation: fadeIn 2s  ease forwards;
+}
+
+.poem span:nth-child(1) { animation-delay: 0s; }
+.poem span:nth-child(2) { animation-delay: 2s; }
+.poem span:nth-child(3) { animation-delay: 4s; }
+.poem span:nth-child(4) { animation-delay: 6s; }
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.welcome {
+   text-align: center; 
+}
+
+
+/* .lora-<uniquifier> {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} 
+
+.dm-serif-display-regular {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dm-serif-display-regular-italic {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+*/
