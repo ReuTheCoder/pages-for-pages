@@ -65,6 +65,19 @@ a:hover {
 a:active {
   color: var(--color-accent); 
 }
+/* --- FIXED: Forces subpages to display instantly, bypassing all layout delays --- */
+.content.always-visible,
+.content.always-visible .main-layout,
+.content.always-visible .tab-header,
+.content.always-visible main,
+.content.always-visible main a,
+.content.always-visible main .CR-section-container,
+.content.always-visible main .footer {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transition-delay: 0s !important; /* Overrides the 2s pause timer */
+}
 
 .hero{
   position: fixed;
@@ -140,7 +153,6 @@ a:active {
 .content {
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
   transition: opacity 1.2s ease, visibility 1.2s ease;
   padding: 0 0 2rem 0;
 }
