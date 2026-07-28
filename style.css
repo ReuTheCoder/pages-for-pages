@@ -142,7 +142,7 @@ a:active {
   visibility: hidden;
   pointer-events: none;
   transition: opacity 1.2s ease, visibility 1.2s ease;
-  padding: 0 2rem 2rem 2rem;
+  padding: 0 0 2rem 0;
 }
 
 .content.visible {
@@ -153,7 +153,7 @@ a:active {
 .content.visible .main-layout {
   opacity: 1;
   visibility: visible;
-  transition-delay: 2s;       
+  transition-delay: 1s;       
 }
 
 .button-style, button {
@@ -197,12 +197,12 @@ main {
   transition-delay: 0s; /* Fallback default state */
 }
 
-/* 2. THE MAGIC HOLD-BACK: Delay the Header and Main Content by 2 seconds! */
+
 .content.visible .tab-header,
 .content.visible main {
   opacity: 1;
   visibility: visible;
-  transition-delay: 2s; /* Holds back the rest of the site for 2 seconds */
+  transition-delay: 1s; /* Holds back the rest of the site for 2 seconds */
 }
 
 /* --NAVIGATION--------------------------------------------*/
