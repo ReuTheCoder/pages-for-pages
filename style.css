@@ -67,25 +67,42 @@ a:active {
 }
 
 .poem{
-  display:block;
-  margin-top:4em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; 
+
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  
+  background-color: var(--color-bg);
+  z-index: 67;
+  margin: 0;
+  transition: opacity 1s ease, visibility 1s ease;
 }
 .poem span {
     display: block;
     opacity: 0;
     text-align: center;
-    margin-bottom: 1.5em;
-    margin-top: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
     text-shadow: 0 0 8px rgba(196, 155, 77, 0.4); /* muted gold glow */
     animation: fadeIn 2s  ease forwards;
-    /* position: relative;
-    top: 2rem; */
+}
+
+.poem.hidden {
+  opacity:0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .poem span:nth-child(1) { animation-delay: 0s; }
-.poem span:nth-child(2) { animation-delay: 2s; }
-.poem span:nth-child(3) { animation-delay: 4s; }
-.poem span:nth-child(4) { animation-delay: 6s; }
+.poem span:nth-child(2) { animation-delay: 2.5s; }
+.poem span:nth-child(3) { animation-delay: 5s; }
+.poem span:nth-child(4) { animation-delay: 7.5s; }
 
 @keyframes fadeIn {
   to { opacity: 1; }
@@ -99,9 +116,16 @@ a:active {
 
 .content {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 1s ease;
+  transition: opacity 1.2s ease, visibility 1.2s ease;
 }
+
+.content.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 .button-style, button {
   display: block;       

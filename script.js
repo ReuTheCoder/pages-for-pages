@@ -1,20 +1,22 @@
 function revealContent() {
   const content = document.querySelector('.content');
-  const poemSpans = document.querySelectorAll('.poem span');
+  const poem = document.querySelector('.poem');
 
-  // Reveal main content
-  content.style.opacity = '1';
-  content.style.pointerEvents = 'auto';
+  if (poem) {
+    poem.classList.add('hidden');
+  }
 
-  // Stop poem animation immediately
-  poemSpans.forEach(span => {
-    span.style.animation = 'none';
-    span.style.opacity = '1';
-  });
+  if (content) {
+    content.classList.add('visible');
+  }
+
+  document.removeEventListener('keydown', revealContent);
+  document.removeEventListener('click', revealContent);  
 }
 
+
 // Reveal after animation ends (8 seconds)
-setTimeout(revealContent, 8000);
+setTimeout(revealContent, 9500);
 
 // Reveal early if any key is pressed
 document.addEventListener('keydown', revealContent);
