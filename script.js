@@ -1,6 +1,6 @@
 function revealContent() {
   const content = document.querySelector('.content');
-  const poem = document.querySelector('.poem');
+  const poem = document.querySelector('.hero');
 
   if (poem) {
     poem.classList.add('hidden');
@@ -14,8 +14,6 @@ function revealContent() {
   document.removeEventListener('click', revealContent);  
 }
 
-
-// Reveal after animation ends (8 seconds)
 setTimeout(revealContent, 9500);
 
 // Reveal early if any key is pressed
