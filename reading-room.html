@@ -9,14 +9,14 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
         
-        <title> ✦ Reading Room </title>
+        <title> ✦ Reading Journal </title>
 
         <link rel="stylesheet" href="style.css">
         <script src="script.js" defer></script>
     </head>
 
 <body>
-      <div class="content always-visible">
+        <div class="content always-visible">
         <div class="main-layout">
 
     <header class="tab-header">
@@ -24,20 +24,27 @@
         <nav class="navigation">
             <ul>
                 <li><a href="index.html"> Home </a></li>
-                <li><a href="reading-room.html" class="active"> Reading Room</a></li>
+                <li><a href="reading-room.html" class="active"> Reading Journal</a></li>
                 <li><a href="bookshelf.html"> Bookshelf </a></li>
             </ul>
         </nav>
      </header>
 
-    <main>
-        <section> 
-            [Search bar PLACEHOLDER] 
+    <main class="reading-journal-main">
+        <section class="search-container"> 
+            <input type="text" id="journal-search" placeholder=" Search by book title..." autocomplete="off">
+            <div id="search-error" class="search-error-msg"> Book not found in journal.</div>
         </section> <!-- search bar, <input> -->
-       <section>
-            <button> ← </button><!-- <p> Previous</p> -->
-            <div> [Journal Interface PLACEHOLDER] </div> <!-- search bar-->    
-            <button> → </button> <!-- <p> Next </p> -->
+       <section class="journal-interface">
+            <button id="prev-btn" class="nav-arrow-btn" aria-label="Previous Entry"> ← </button><!-- <p> Previous</p> -->
+            
+            <div class="journal-view-window"> 
+                <div id="journal-card-container">
+                    <!--Javascript shall save the day!-->
+                </div>
+            </div> 
+            
+            <button id="next-btn" class="nav-arrow-btn" aria-label="Next Entry"> → </button> <!-- <p> Next </p> -->
         </section>
     </main>
 
