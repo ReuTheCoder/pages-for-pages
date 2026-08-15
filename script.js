@@ -75,7 +75,7 @@ function createCardHTML(book) {
   return `
     <div class="journal-card">
       <div class="journal-card-wrapper">
-        <img src="${book.coverUrl}" alt="Book cover of '${book.title}'" onerror="this.src='https://placehold.co/400'">
+        <img src="${book.coverUrl}" alt="Book cover of '${book.title}'" onerror="this.src='https://placehold.co/160x280/2E6F40/white?text=Book+Cover\nPlaceholder&font=lora'">
       </div>
       <div class ="journal-details">
         <h2>${book.title}</h2>
