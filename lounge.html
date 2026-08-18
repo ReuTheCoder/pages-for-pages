@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+        <title> ✦ Lounge </title>
+
+        <link rel="stylesheet" href="style.css">
+        <script src="workspace.js" defer></script>
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="assets/favicon/site.webmanifest">
+    </head>
+
+    <body>
+        <div class="content always-visible">
+        <div class="main-layout">
+
+        <header class="tab-header">
+            <h1>Pages for Pages</h1>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html"> Home </a></li>
+                    <li><a href="reading-room.html"> Reading Journal</a></li>
+                    <li><a href="bookshelf.html"> Bookshelf </a></li>
+                    <li><a href="lounge.html" class="active"> Library Lounge </a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="workspace-grid-main">
+
+            <!-- Utilities Column-->
+            <div class="workspace-column side-panel">
+                <section class="workspace-card controller-box">
+                    <button id="dim-lights-btn" class="workspace-toggle-btn">
+                        <span class="icon"> ❂ </span> Dim the Lights
+                    </button>
+                </section>
+
+                <section class="workspace-card pomodoro-module">
+                    <h3>Focus Timer</h3>
+                    <div class="timer-visual-container">
+                        <div class="timer-ring-track">
+                            <svg class="timer-svg" viewBox="0 0 100 100">
+                                <circle class="timer-circle-fill" cx="50" cy="50" r="45"></circle>
+                            </svg>
+                        </div>
+
+                        <div class="timer-text-overlay">
+                            <div id="timer-display" class="timer-display">25:00</div>
+                            <div id="timer-session-label" class="timer-session-label"> Reading Session</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timer-controls-row">
+                        <button id="timer-start" class="timer-btn btn-active">Start</button>
+                        <button id="timer-pause" class="timer-btn"> Pause</button>
+                        <button id="timer-reset" class="timer-btn"> Reset </button>
+                    </div>
+
+                    <div class="timer-duration-settings">
+                        
+                        <div class="duration-group">
+                            <span class="duration-label">Read</span>
+                            <div class="stepper-control">
+                                <button type="button" class="step-btn" data-action="dec" data-target="read">-</button>
+                                <strong id="val-read" class="step-value">25</strong>
+                                <button type="button" class="step-btn" data-action="inc" data-target="read">+</button>
+                            </div>
+                        </div>
+
+                        <div class="duration-group">
+                            <span class="duration-label">Break</span>
+                            <div class="stepper-control">
+                                <button type="button" class="step-btn" data-action="dec" data-target="break">-</button>
+                                <strong id="val-break" class="step-value">5</strong>
+                                <button type="button" class="step-btn" data-action="inc" data-target="break">+</button>
+                            </div>
+                        </div>
+
+                        <div class="duration-group">
+                            <span class="duration-label">Long Break</span>
+                            <div class="stepper-control">
+                                <button type="button" class="step-btn" data-action="dec" data-target="long">-</button>
+                                <strong id="val-long" class="step-value">15</strong>
+                                <button type="button" class="step-btn" data-action="inc" data-target="long">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class ="workspace-card soundscape-mixer">
+                    <h3> Room Soundscape</h3>
+                    <div class="sound-row">
+                        <label for="track-rain"> Soft Rain</label>
+                        <input type="range" id="track-rain" min="0" max="100" value="0">
+                        <audio id="audio-rain" loop src="assets/audio/soundreality-street-rain-548067.mp3"></audio>
+                    </div>
+                    <div class="sound-row">
+                        <label for="track-fire"> Crackling Fireplace </label>
+                        <input type="range" id="track-fire" min="0" max="100" value="0">
+                        <audio id="audio-fire" loop src="assets/audio/soundreality-fire-crackling-528620.mp3"></audio>
+                    </div>
+                    <div class="sound-row">
+                        <label for="track-library"> Library Murmurs </label>
+                        <input type="range" id="track-library" min="0" max="100" value="0">
+                        <audio id="audio-library" loop src="assets/audio/soul_serenity_sounds-ambience-236734.mp3"></audio>
+                    </div>
+                </section>
+            </div>
+            <!-- Workspace Column-->
+             <div class="workspace-column main-panel">
+                
+                <section class="workspace-card media-deck">
+                    <h3> Media Player</h3>
+                    <div class="media-input-bar">
+                        <input type="text" id="media-url-input" placeholder="Paste Youtube Link here...">
+                        <button id="load-media-btn" class="btn-primary">Load</button>
+                    </div>
+                    <div class="media-player-container">
+                        <div id="video-placeholder" class="fallback">
+                            <p> No media loaded. Paste the link of an ambient video to fill the background. </p>
+                        </div>
+                        <iframe id="global-iframe-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </section>
+
+                <section class="workspace-card scratchpad-deck">
+                    <div class="scratchpad-header-row">
+                        <h3> Annotation Scratchpad</h3>
+                    </div>
+                    <textarea id="workspace-notes" placeholder="Jot down temporary observations, copy quotes, draft review entries..."></textarea>
+                </section>
+             </div>
+            
+        </main>
+
+        <footer class="footer">
+            <p> © 2026 Pages for Pages.</p>
+        </footer>
+      </div>
+     </div>
+    </body>
+
+</html>
