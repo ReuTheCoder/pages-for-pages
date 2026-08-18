@@ -170,6 +170,8 @@ if (loadMediaBtn && mediaInput) {
 
     if (videoID && iframePlayer && fallbackBox) {
       // Added the critical /embed/ path link segment so YouTube doesn't block the site layout context
+         console.log("videoID:", videoID);
+        console.log("final src:", `https://www.youtube.com/embed/${videoID}?autoplay=1&mute=1&loop=1&playlist=${videoID}`);
       iframePlayer.src = `https://www.youtube.com/embed/${videoID}?autoplay=1&mute=1&loop=1&playlist=${videoID}`;
       // Change UI state visibility
       fallbackBox.style.display = "none";
