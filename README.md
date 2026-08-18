@@ -1,6 +1,7 @@
-
 # Pages for Pages
-A cozy, library‑themed personal site and digital reading journal that showcases my reading endeavors through an interactive log, a custom visual bookshelf, and a simple workspace designed to elevate the book‑annotation experience.
+
+
+My reading journal, now reimagined as a digital space that showcases my reading endeavors through an interactive log, a custom visual bookshelf, and a simple workspace designed to elevate the reading and annotation experience.
 
 <img src="assets/PFPLookthrough-ezgif.com-video-to-gif-converter.gif" alt="Website Lookthrough" width="100%"> 
 
@@ -9,17 +10,27 @@ Quick Start:
 [![Badge Link to Website](https://img.shields.io/badge/Try%20Version%201.0%20Here-2E6F40?style=for-the-badge&logo=codepen&logoColor=black)](https://reuthecoder.github.io/pages-for-pages/) 
 
 ## Site Features
-- **Interactive Reading Journal:** A touch-swipe and arrow-navigated book log that includes title search functionality and dynamic layout support for multiple journal entry sections.
-- **Visual Bookshelf:** A digital bookcase frame that displays individual display and book spine slots that dynamically reveal full book artwork on hover.
+- **Interactive Reading Journal:** This is the core of the site. It is a book log that includes title search functionality and touch-swipe navigation support.
+- **Visual Bookshelf:** A digital bookcase frame that displays individual display and book spine slots that dynamically reveal full book artwork upon hover.
 - **Styled Content Cards:** Multiple pages feature content cards that display extra information such as a recommended book or what I am currently reading and how much progress I have made.
 - **Integrated Focus Timer:** A geometric Pomodoro system featuring custom interval steppers and a circular SVG countdown tracking arc.
 - **Ambient Soundscape Mixer:** A three-channel volume slider deck configured to play rain, fire, and conversational background tracks simultaneously.
-- **Embedded Media Console:** A regex-powered link parser that automatically overlays streaming YouTube background loops inside a 16:9 viewport.
-- **Drafting Scratchpad:** An auto-saving local textarea module that caches written text observations directly to the browser storage.
+- **Embedded Media Console:** A URL parser that automatically turns Youtube URLs into looping background videos
+- **Scratchpad:** An auto-saving local textarea module that caches written text directly to the browser storage.
 
+
+## How It Works
+
+I built this site entirely with HTML5, CSS3, and Vanilla JavaScript  because I wanted it to feel lightweight, handmade, and to make the project a real learning experience. Avoiding frameworks meant more debugging, but it helped me understand how the browser actually works.
+
+The reading log runs on a small state controller I wrote myself. It handles swiping, title searches, and page transitions using simple `translateX` transforms, which keep animations smooth and fast. Passive touch listeners (`touchstart` and `touchend`) make swipe navigation feel natural on mobile without slowing down rendering.
+
+The media console was the hardest part. With some AI help, I wrote a tiny regex that extracts the 11‑character YouTube video ID from any link and turns it into a looping iframe. I originally considered using a library, but it felt too heavy for what I wanted and I found that building my own parser ended up being simpler and more fun.
+
+Mobile layout consistency comes from the Flexbox layout model and horizontal scrolling (`overflow-x: auto`). I applied the same idea to the CSS bookshelf so my TBR list was not limited by the shelf’s physical layout. I spent a lot of time tweaking this because I wanted menus to glide sideways instead of collapsing into awkward stacks. Features like dark mode and scratchpad notes are saved with `localStorage`, which keeps the site feeling personal without needing a backend. Building everything this way taught me a lot about writing small, clean JavaScript features and relying on the browser’s own tools instead of external dependencies. It made the project feel intentional, and I’m proud of how much I learned.
 ## How to Run Locally
 
-This is a pure front-end static website built with native HTML5, CSS3, and Vanilla JavaScript on GitHub Codespaces. It has no system dependencies, requires no runtime installation commands (like npm or yarn), and uses browser `localStorage` instead of external environment variables.
+This site has no system dependencies, requires no runtime installation commands (like npm or yarn), and uses browser `localStorage` instead of external environment variables.
 
 1. **Clone the repository:**
    ```bash
@@ -30,14 +41,9 @@ This is a pure front-end static website built with native HTML5, CSS3, and Vanil
    cd pages-for-pages
    ```
 3. **Launch the site:**
-
-Double-click the `index.html` file in your file explorer to open it instantly in any modern web browser. **OR** Open the project folder in VS Code and click **Go Live** via the Live Server extension to run a local development server at `http://127.0.0.1:5500`.
-
-## How It Works
-
-Instead of relying on heavy frameworks, this application is engineered entirely with native web APIs, optimizing load performance by utilizing a zero-dependency architecture. The core reading log engine uses a custom JavaScript state controller linked to asynchronous CSS cubic-bezier transition classes to control page-swiping mechanics. When a user searches a title or swipes to navigate, the engine figures out the direction, applies hardware‑accelerated `translateX` transforms to keep the animation off the main thread, swaps the underlying data in a single layout tick, and then injects the updated template. The layout uses passive touch listeners (`touchstart` and `touchend`) to track horizontal swipe movement on touch devices, letting the interface trigger swipe actions quickly without slowing down rendering. 
-
-The platform relies strictly on client-side state lifecycles to simulate traditional server features securely and dynamically. To bypass the performance costs of importing media rendering libraries, a custom Regular Expression parsing engine automatically isolates unique 11-character video identifiers out of variable raw user URL strings, translating them into sandboxed, loop-enabled iframe endpoints. Layout consistency is maintained on mobile viewports using standard CSS Flexbox wrapping attributes paired with horizontal track scrolling properties (`overflow-x: auto`), forcing menu items to fluidly glide sideways rather than fragmenting column stacks. Application persistence is achieved by hooking browser entry events and system atmosphere selectors directly into the Web Storage API (`localStorage`), allowing the application to cache written scratchpad text and restore the “dark-theme” layout state instantly across browser sessions without needing an external database layer.
+- Double-click the `index.html` file in your file explorer to open it in any modern web browser. 
+**OR** 
+- Using VS Code, open the project and click **Go Live** via the Live Server extension to run a local development server at `http://127.0.0.1:5500`.
 
 ## Acknowledgements
 This project was made as a submission to [HackClub's Stardance Challenge](https://stardance.hackclub.com/) and was inspired when brainstorming ideas for their Personal Site mission. Thank you to Hackclub for motivating me to make this project!
@@ -46,7 +52,7 @@ Many of *Library Lounge*’s features were inspired by [I Miss My Cafe](https://
 
 Codynn’s [Build a Pomodoro App](https://www.youtube.com/watch?v=LyT055nXXyc) project tutorial provided much help when making the Pomodoro Timer function for the *Library Lounge*.
 
-favicon.io was used for making the favicon. The image was sourced from *All Day April* through Canva and slightly edited to better match the site's color palette. ezgif.com was used for the attached gif. Any audio was taken from Pixabay and was confirmed to not require attribution for non-commercial products.
+"favicon.io" was used for making the favicon. The image was sourced from *All Day April* through Canva and slightly edited to better match the site's color palette. "ezgif.com" was used for the attached gif. Any audio was taken from Pixabay and was confirmed to not require attribution for non-commercial products.
 
 ### AI Use
 
