@@ -549,14 +549,46 @@ main {
     padding-bottom: 10px;
   }
   .tab-header {
-    padding: 10px 16px;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
+    padding: 10px 0;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    gap: 4px;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid rgba(46, 111, 64, 0.1);
   }
   .tab-header h1 {
-    font-size: 28px;
-    margin-bottom: 12px;
+    font-size: 18px;
+    margin: 0;
+    letter-spacing: 0.05em;
+    font-family: var(--font-header);
+  }
+
+  .navigation a {
+    background: none !important;
+    border: none !important;
+    padding: 4px 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    box-shadow: none !important;
+    border-radius: 0;
+  }
+
+  .navigation a.active {
+    color: var(--color-accent);
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-accent) !important;
+  }
+
+  .navigation ul {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
 }
 
