@@ -153,12 +153,41 @@ const fallbackBox = document.getElementById("video-placeholder");
 const iframePlayer = document.getElementById("global-iframe-player");
 
 function parseYoutubeID(url) {
-  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  // A comprehensive regular expression that extracts the 11-character video ID from any valid YouTube URL format
+  const regExp = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
   const match = url.match(regExp);
-  return (match && match[2].length === 11) ? match[2]:null;
+  
+  // YouTube video IDs are strictly 11 characters long. This checks and extracts index 1.
+  return (match && match[1].length === 11) ? match[1] : null;
 }
 
-loadMediaBtn.addEventListener("click", () => {
+if (loadMediaBtn && mediaInput) {
+  loadMediaBtn.addEventListener("click", () => {
+    const urlString = mediaInput.value.trim();
+    if (urlString === "") return;
+
+    const videoID = parseYoutubeID(urlString);
+
+    if (videoID && iframePlayer && fallbackBox) {
+      // Added the critical /embed/ path link segment so YouTube doesn't block the site layout context
+      iframePlayer.src = `https://www.youtube.com/embed/${videoID}?autoplay=1&mute=1&loop=1&playlist=${videoID}`;
+      // Change UI state visibility
+      fallbackBox.style.display = "none";
+      iframePlayer.style.display = "block";
+    } else {
+      alert("Invalid format. Please paste a standard YouTube sharing link.");
+    }
+  });
+}
+
+//function parseYoutubeID(url) {
+  //const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  //const match = url.match(regExp);
+  //return (match && match[2].length === 11) ? match[2]:null;
+//}
+
+
+/* loadMediaBtn.addEventListener("click", () => {
   const urlString = mediaInput.value.trim();
   if (urlString === "") return;
 
@@ -171,7 +200,7 @@ loadMediaBtn.addEventListener("click", () => {
   } else {
     alert("Invalid format. Please paste a verified standard Youtube sharing link.");
   }
-});
+}); */
 //SCRATCHPAD
 const scratchpadTextarea = document.getElementById("workspace-notes");
 if(scratchpadTextarea) {
