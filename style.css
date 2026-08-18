@@ -462,7 +462,7 @@ main {
 
 .journal-interface {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 20px;
   width: 100%;
@@ -482,6 +482,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  margin-top: 36px;
 }
 
 .nav-arrow-btn:hover {
@@ -507,6 +509,7 @@ main {
   gap: 40px;
   box-sizing: border-box;
   width: 100%;
+  align-items: flex-start;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
 }
 
@@ -519,6 +522,7 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 24px;
   }
   .journal-interface {gap: 5px}
   .journal-card-wrapper {
@@ -608,6 +612,14 @@ main {
   color: #2E6F40;
   margin: 0 0 8px 0;
   font-size: 18px;
+}
+
+.journal-thoughts-box p {
+  white-space: pre-line;
+  line-height: 1.65;
+  margin: 0;
+  font-size: 15px;
+  color: #333;
 }
 
 .slide-out-left {
@@ -869,4 +881,360 @@ main {
   line-height: 1.65;
   margin: 0;
   color: #333;
+}
+/* LOUNGE -----------------------------------------------*/
+.workspace-grid-main {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 32px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 3rem auto 0 auto;
+  box-sizing: border-box;
+}
+
+.workspace-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.workspace-card {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(46, 111, 64, 0.15);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(35, 43, 37, 0.06);
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.workspace-card  h3 {
+  font-family: var(--font-header);
+  color: var(--color-accent);
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+}
+
+.controller-box {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+}
+/* LOUNGE - "DARK" MODE -----------------------------------------------*/
+#dim-lights-btn, .step-btn, .timer-btn {
+  font-family: var(--font-body);
+  background-color: #FFFFFF;
+  color: var(--color-accent);
+  border: 1px solid rgba(46, 111, 64, 0.3);
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#dim-lights-btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  box-shadow: 0 4px 12px rgba(46, 111, 64, 0.15);
+}
+
+body.espresso-dark-mode {
+  background-color: #1E1A17 !important;
+  color: #FAF6E8 !important;
+}
+body.espresso-dark-mode .tab-header {
+  background-color: #1E1A17;
+}
+body.espresso-dark-mode .workspace-card {
+  background-color: rgba(28, 24, 22, 0.85);
+  border-color: rgba(212, 163, 115, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+body.espresso-dark-mode .workspace-card h3, body.espresso-dark-mode .timer-display {
+  color: #D4A373 !important;
+}
+body.espresso-dark-mode .duration-label, body.espresso-dark-mode .sound-row label {
+  color: #c9c1ad !important;
+}
+body.espresso-dark-mode .step-btn, body.espresso-dark-mode .timer-btn, body.espresso-dark-mode #dim-lights-btn {
+  background-color: #2A2420;
+  border-color: rgba(212, 163, 115, 0.2);
+  color: #D4A373;
+}
+body.espresso-dark-mode .timer-btn.btn-active, body.espresso-dark-mode .timer-btn:hover, body.espresso-dark-mode #dim-lights-btn:hover {
+  background-color: #D4A373;
+  color: #1E1A17;
+  border-color: #D4A373;
+}
+
+body.espresso-dark-mode .media-input-bar input, body.espresso-dark-mode .scratchpad-deck textarea {
+  background-color: #14110F;
+  border-color: rgba(212, 163, 115, 0.15);
+  color: #FAF6E8;
+}
+
+body.espresso-dark-mode .timer-circle-fill {
+  stroke:#D4A373;
+}
+body.espresso-dark-mode .btn-primary {
+  background-color: #D4A373;
+  color: #1E1A17;
+}
+body.espresso-dark-mode .tab-header h1,
+body.espresso-dark-mode .navigation a:hover, body.espresso-dark-mode .navigation a.active, 
+body.espresso-dark-mode .navigation a.active:hover, 
+body.espresso-dark-mode .navigation a.active:visited,
+body.espresso-dark-mode .navigation a:link, body.espresso-dark-mode .navigation a:visited,
+body.espresso-dark-mode .navigation, body.espresso-dark-mode .footer
+ {
+  background-color: #1E1A17 !important;
+  color: #1E1A17 !important;
+  text-shadow: 0 0 4px #1E1A17; 
+}
+
+
+/* LOUNGE - POMODORO -----------------------------------------------*/
+.timer-visual-container {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 24px auto;
+}
+
+.timer-ring-track {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.timer-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.timer-circle-fill {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.timer-text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-display {
+  font-family: var(--font-header);
+  font-size: 40px;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.timer-session-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #8c8269;
+  margin-top: 6px;
+}
+
+.timer-controls-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.timer-btn.btn-active, .timer-btn:hover {
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+  border-color: var(--color-accent);
+}
+
+.timer-duration-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px dashed rgba(140, 130, 105,0.2);
+  padding-top: 16px;
+}
+
+.duration-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.duration-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555555;
+}
+
+.stepper-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.step-btn {
+  padding: 0;
+  justify-content:center;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+}
+
+.step-value {
+  font-size: 14px;
+  width: 20px;
+  text-align: center;
+}
+
+/* LOUNGE - SOUNDSCAPE -----------------------------------------------*/
+
+.soundscape-mixer .sound-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.soundscape-mixer .sound-row:last-child {
+  margin-bottom: 0;
+}
+.sound-row label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
+
+.sound-row input[type="range"] {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(46, 111, 64, 0.15);
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+}
+
+.sound-row input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.sound-row input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* LOUNGE - MEDIA CONTROL  -----------------------------------------------*/
+.media-input-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.media-input-bar input {
+  flex-grow: 1;
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 10px 14px;
+  border: 1px solid rgba(46, 111, 64, 0.15);
+  border-radius: 6px;
+  background-color: #FFFFFF;
+}
+
+.media-input-bar input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.btn-primary {
+  font-family: var(--font-body);
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+  border: none;
+  padding: 0 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.media-player-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #1e1412;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.fallback {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  box-sizing: border-box;
+  color: #8c8269;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#global-iframe-player {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* LOUNGE - SCRATCHPAD  -----------------------------------------------*/
+.scratchpad-deck textarea {
+  width: 100%;
+  height: 200px;
+  border: 1px solid rgba(46, 111, 64, 0.15);
+  border-radius: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  background-color: #FFFFFF;
+  color: #232B25;
+  resize: vertical;
+}
+
+.scratchpad-deck textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 8px rgba(46, 111, 64, 0.1);
+}
+
+@media (max-width: 768px) {
+  .workspace-grid-main {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 16px;
+  }
 }
